@@ -1,3 +1,6 @@
+<a href="/menu"><div style="width:40px;height:40px;background-color:green;margin:20px;color:white;">
+    <p>return</p>
+</div></a>
 <h1 style="text-align:center;margin-top:5%;"> View Collection </h1>
 <div style="width:80%;margin:0 auto;"><table>
     <tr>
