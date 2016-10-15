@@ -18,7 +18,7 @@
 				<div style="width:25%;height:100%;float:left;">
 				
 					<!-- View Cards Element -->
-					<a href="/cards/view">
+					<a href="/card/view">
 					<div style="box-shadow: -2px 2px 2px #ffffff;height:50%;margin-bottom:5%;background: url(/img/complementary/img1.jpg);
 													background-size:100%; border-radius: 20px;padding:20px;overflow:hidden;">
 						<div style="width:200%;margin-left:-50%;margin-top:40%;height:20%;background-color:rgba(255, 255, 255, 0.6);text-align:center;">

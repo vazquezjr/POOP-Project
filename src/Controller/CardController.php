@@ -4,9 +4,9 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 /**
- * card Controller
+ * Card Controller
  *
- * @property \App\Model\Table\cardTable $card
+ * @property \App\Model\Table\CardTable $Card
  */
 class CardController extends AppController
 {
@@ -18,7 +18,7 @@ class CardController extends AppController
      */
     public function index()
     {
-        $card = $this->paginate($this->card);
+        $card = $this->paginate($this->Card);
 
         $this->set(compact('card'));
         $this->set('_serialize', ['card']);
@@ -33,11 +33,17 @@ class CardController extends AppController
      */
     public function view($id = null)
     {
-    	$card = $this->card->find('all');
-    	$card = $this->paginate($this->card);
+        //$card = $this->Card->get($id, [
+        //    'contain' => []
+        //]);
+
     	
-    	$this->set(compact('card'));
+    	$card = $this->Card->find('all');
+    	$card = $this->paginate($this->Card);
+    		 
+        $this->set(compact('card'));
     	$this->set('_serialize', ['card']);
+    	
     }
 
     /**
@@ -47,10 +53,10 @@ class CardController extends AppController
      */
     public function add()
     {
-        $card = $this->card->newEntity();
+        $card = $this->Card->newEntity();
         if ($this->request->is('post')) {
-            $card = $this->card->patchEntity($card, $this->request->data);
-            if ($this->card->save($card)) {
+            $card = $this->Card->patchEntity($card, $this->request->data);
+            if ($this->Card->save($card)) {
                 $this->Flash->success(__('The card has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -71,12 +77,12 @@ class CardController extends AppController
      */
     public function edit($id = null)
     {
-        $card = $this->card->get($id, [
+        $card = $this->Card->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $card = $this->card->patchEntity($card, $this->request->data);
-            if ($this->card->save($card)) {
+            $card = $this->Card->patchEntity($card, $this->request->data);
+            if ($this->Card->save($card)) {
                 $this->Flash->success(__('The card has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -98,18 +104,13 @@ class CardController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $card = $this->card->get($id);
-        if ($this->card->delete($card)) {
+        $card = $this->Card->get($id);
+        if ($this->Card->delete($card)) {
             $this->Flash->success(__('The card has been deleted.'));
         } else {
             $this->Flash->error(__('The card could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-    
-    public function images()
-    {
-    	
     }
 }

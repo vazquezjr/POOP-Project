@@ -26,14 +26,12 @@
 		<div style="width:100%;height:1000px;">
 			
 			<!-- For each card in the database... -->
-			<?php foreach($cards as $card): ?>
-		
+			<?php foreach($card as $crd): ?>
 				<!-- Enter logic "does user have card? if user has card, execute below" -->
 		
 			<!-- Display the card's image as a hyperlink to the card's data -->
-			<a href="<$= $card->id ?>">
-			<div style="width:375px;height:523px;margin:10px;float:left;background: url(/img/cards/card_id<?= $card->id ?>.png">
-			</div>
+			<a href="<$= $crd->cardid ?>">
+			<img src="/img/cards/card_id<?= $crd->cardid ?>.png" style="float:left;margin:10px;"/>
 			</a>
 			
 				<!-- Enter logic "if user does not have card..." user will view black & white version of the card instead -->

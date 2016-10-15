@@ -6,11 +6,12 @@ use Cake\ORM\Entity;
 /**
  * Card Entity
  *
- * @property int $id
- * @property string $title
- * @property int $atk
- * @property int $def
+ * @property int $cardid
+ * @property string $name
+ * @property string $picture
  * @property string $description
+ * @property int $offensePoints
+ * @property int $defensePoints
  */
 class Card extends Entity
 {
@@ -26,6 +27,8 @@ class Card extends Entity
      */
     protected $_accessible = [
         '*' => true,
-        'id' => false
+        'cardid' => false
     ];
+    
+    
 }
