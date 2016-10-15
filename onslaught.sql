@@ -63,7 +63,7 @@ CREATE TABLE `user` (
   `email` text,
   `wins` int(11) DEFAULT NULL,
   `losses` int(11) DEFAULT NULL,
-  `draws` int(11) DEFAULT NULL,
+  `draws` int(11) DEFAULT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 
 -- --------------------------------------------------------
@@ -84,8 +84,8 @@ CREATE TABLE `user_has_card` (
 --
 
 CREATE TABLE `user_owns_deck` (
-  `deckid` int(11) NOT NULL
-  `username` char(50) NOT NULL,
+  `deckid` int(11) NOT NULL,
+  `username` char(50) NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 
 -- --------------------------------------------------------
@@ -98,7 +98,7 @@ CREATE TABLE `history_belongsTo_user` (
   `logid` int(11) NOT NULL,
   `date` date,
   `result` text,
-  `vsusername` char(50)
+  `vsusername` char(50),
   `username` char(50) NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
 
