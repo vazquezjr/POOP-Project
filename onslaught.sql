@@ -195,7 +195,7 @@ ALTER TABLE `user_owns_deck`
 -- Constraints for table `history_belongsTo_user`
 --
 ALTER TABLE `history_belongsTo_user`
-  ADD 
+  ADD CONSTRAINT `history_belongsTo_user_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Assertion for tables
