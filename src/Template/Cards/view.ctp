@@ -1,6 +1,6 @@
 <!-- VIEW CARD COLLECTION PAGE -->
 <!-- Background div housing all content within the template -->
-<div style="background:url(/img/backgrounds/bg4.jpg);width:100%;height:1000px;padding:1%;background-size:100%;background-attachment:fixed;">
+<div style="background:url(/img/backgrounds/bg4.jpg);width:100%;height:100%;padding:1%;background-size:100%;background-attachment:fixed;">
 
 
 	<!-- This code represents the return button located at the top right of the screen -->
@@ -13,7 +13,7 @@
 
 	
 	<!-- This code represents the Main collection display on the page -->
-	<div style="width:85%;margin:0 auto;background: rgba(255, 255, 255, 0.4); border-radius: 20px;overflow:scroll;">
+	<div style="width:85%;margin:0 auto;background: rgba(255, 255, 255, 0.4); border-radius: 20px;">
 	
 		<!-- Title -->
 		<h1 style="text-align:center;margin-top:2%;"> Collection </h1>
