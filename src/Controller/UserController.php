@@ -4,11 +4,11 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 /**
- * Users Controller
+ * User Controller
  *
- * @property \App\Model\Table\UsersTable $Users
+ * @property \App\Model\Table\UserTable $User
  */
-class UsersController extends AppController
+class UserController extends AppController
 {
 
     /**
@@ -18,15 +18,10 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $users = $this->paginate($this->Users);
+        $user = $this->paginate($this->User);
 
-        $this->set(compact('users'));
-        $this->set('_serialize', ['users']);
-    }
-    
-    public function login()
-    {
-    	
+        $this->set(compact('user'));
+        $this->set('_serialize', ['user']);
     }
 
     /**
@@ -38,7 +33,7 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
-        $user = $this->Users->get($id, [
+        $user = $this->User->get($id, [
             'contain' => []
         ]);
 
@@ -53,10 +48,10 @@ class UsersController extends AppController
      */
     public function add()
     {
-        $user = $this->Users->newEntity();
+        $user = $this->User->newEntity();
         if ($this->request->is('post')) {
-            $user = $this->Users->patchEntity($user, $this->request->data);
-            if ($this->Users->save($user)) {
+            $user = $this->User->patchEntity($user, $this->request->data);
+            if ($this->User->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -77,12 +72,12 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
-        $user = $this->Users->get($id, [
+        $user = $this->User->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $user = $this->Users->patchEntity($user, $this->request->data);
-            if ($this->Users->save($user)) {
+            $user = $this->User->patchEntity($user, $this->request->data);
+            if ($this->User->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -104,18 +99,13 @@ class UsersController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $user = $this->Users->get($id);
-        if ($this->Users->delete($user)) {
+        $user = $this->User->get($id);
+        if ($this->User->delete($user)) {
             $this->Flash->success(__('The user has been deleted.'));
         } else {
             $this->Flash->error(__('The user could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-    
-    public function history()
-    {
-    	
     }
 }
