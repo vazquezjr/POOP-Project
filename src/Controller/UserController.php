@@ -33,6 +33,7 @@ class UserController extends AppController
      */
     public function view($id = null)
     {
+        debug($id);
         $user = $this->User->get($id, [
             'contain' => []
         ]);
@@ -50,6 +51,7 @@ class UserController extends AppController
     {
         $user = $this->User->newEntity();
         if ($this->request->is('post')) {
+            $this->request->data('password', md5($this->request->data('password')));
             $user = $this->User->patchEntity($user, $this->request->data);
             if ($this->User->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
@@ -75,6 +77,9 @@ class UserController extends AppController
         $user = $this->User->get($id, [
             'contain' => []
         ]);
+
+        $this->request->data('password', md5($this->request->data('password')));
+        
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->User->patchEntity($user, $this->request->data);
             if ($this->User->save($user)) {
