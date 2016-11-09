@@ -31,8 +31,8 @@ class UserTable extends Table
         parent::initialize($config);
 
         $this->table('user');
-        $this->displayField('username');
-        $this->primaryKey('username');
+        $this->displayField('userid');
+        $this->primaryKey('userid');
     }
 
     /**
@@ -44,7 +44,7 @@ class UserTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->allowEmpty('username', 'create');
+            ->allowEmpty('userid', 'create');
 
         $validator
             ->allowEmpty('password');
@@ -54,16 +54,11 @@ class UserTable extends Table
             ->allowEmpty('email');
 
         $validator
-            ->integer('wins')
-            ->allowEmpty('wins');
+            ->integer('experience')
+            ->allowEmpty('experience');
 
         $validator
-            ->integer('losses')
-            ->allowEmpty('losses');
-
-        $validator
-            ->integer('draws')
-            ->allowEmpty('draws');
+            ->allowEmpty('loggedIn');
 
         return $validator;
     }
@@ -77,6 +72,7 @@ class UserTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
+        $rules->add($rules->isUnique(['userid']));
         $rules->add($rules->isUnique(['username']));
         $rules->add($rules->isUnique(['email']));
 
