@@ -9,11 +9,11 @@
     <fieldset>
         <legend><?= __('Add User') ?></legend>
         <?php
+            echo $this->Form->input('username');
             echo $this->Form->input('password');
             echo $this->Form->input('email');
-            echo $this->Form->input('wins');
-            echo $this->Form->input('losses');
-            echo $this->Form->input('draws');
+            echo $this->Form->input('experience');
+            echo $this->Form->input('loggedIn');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

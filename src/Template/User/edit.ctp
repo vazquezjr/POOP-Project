@@ -3,8 +3,8 @@
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
                 __('Delete'),
-                ['action' => 'delete', $user->username],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $user->username)]
+                ['action' => 'delete', $user->userid],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $user->userid)]
             )
         ?></li>
         <li><?= $this->Html->link(__('List User'), ['action' => 'index']) ?></li>
@@ -15,11 +15,11 @@
     <fieldset>
         <legend><?= __('Edit User') ?></legend>
         <?php
+            echo $this->Form->input('username');
             echo $this->Form->input('password');
             echo $this->Form->input('email');
-            echo $this->Form->input('wins');
-            echo $this->Form->input('losses');
-            echo $this->Form->input('draws');
+            echo $this->Form->input('experience');
+            echo $this->Form->input('loggedIn');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

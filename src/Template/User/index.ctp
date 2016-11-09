@@ -9,26 +9,28 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
+                <th scope="col"><?= $this->Paginator->sort('userid') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('username') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('password') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('wins') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('losses') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('draws') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('email') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('experience') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('loggedIn') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($user as $user): ?>
             <tr>
+                <td><?= $this->Number->format($user->userid) ?></td>
                 <td><?= h($user->username) ?></td>
                 <td><?= h($user->password) ?></td>
-                <td><?= $this->Number->format($user->wins) ?></td>
-                <td><?= $this->Number->format($user->losses) ?></td>
-                <td><?= $this->Number->format($user->draws) ?></td>
+                <td><?= h($user->email) ?></td>
+                <td><?= $this->Number->format($user->experience) ?></td>
+                <td><?= h($user->loggedIn) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $user->username]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->username]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->username], ['confirm' => __('Are you sure you want to delete # {0}?', $user->username)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $user->userid]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->userid]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->userid], ['confirm' => __('Are you sure you want to delete # {0}?', $user->userid)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
