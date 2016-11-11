@@ -20,13 +20,13 @@ CREATE TABLE `cards` (
   `cost3` int(11) DEFAULT NULL,
   `offensePoints` int(11) DEFAULT NULL,
   `defensePoints` int(11) DEFAULT NULL
-) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 CREATE TABLE `card_in_deck` (
   `deckid` int(11),
   `cardid` int(11) NOT NULL,
   `count` int(11) DEFAULT 1
-) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 CREATE TABLE `users` (
   `userid` int(11),
@@ -35,18 +35,18 @@ CREATE TABLE `users` (
   `email` text,
   `experience` int(11) DEFAULT 0,
   `loggedIn` boolean DEFAULT FALSE
-) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 CREATE TABLE `user_has_card` (
   `userid` int(11),
   `cardid` int(11) NOT NULL,
   `count` int(11) DEFAULT 1
-) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 CREATE TABLE `user_owns_deck` (
   `deckid` int(11) NOT NULL,
   `userid` int(11) NOT NULL
-) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 CREATE TABLE `history_belongsTo_user` (
   `logid` int(11) NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE `history_belongsTo_user` (
   `result` text,
   `vsuserid` int(11),
   `userid` int(11) NOT NULL
-) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
 ALTER TABLE `cards`
   ADD PRIMARY KEY (`cardid`);
