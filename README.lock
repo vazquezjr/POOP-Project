@@ -1,2 +1,1 @@
-Unzip composer.lock.tgz using tar -xvzf to obtain the original composer.lock file before running the 
-application.
+Unzip composer.lock.tgz and composer.json.tgz using tar -xvzf to obtain the original composer.lock and composer.json files before running the application.
